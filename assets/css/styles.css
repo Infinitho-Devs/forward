@@ -1041,6 +1041,9 @@ html.is-loading .pt { animation: pt-failsafe 0s linear 4s forwards; }
    ========================================================================== */
 .page-hero {
   position: relative; overflow: hidden;
+  /* Siempre ocupa la primera pantalla completa, tenga más o menos contenido */
+  min-height: 100vh; min-height: 100svh;
+  display: flex; flex-direction: column; justify-content: center;
   padding: calc(var(--nav-h) + clamp(70px, 11vw, 140px)) 0 clamp(70px, 9vw, 120px);
   background: var(--ink-950); color: var(--on-dark);
 }
