@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Forward Access — Registro y control de acceso para eventos</title>
+  <meta name="description" content="Forward Access es una empresa de registro y control de acceso para eventos en República Dominicana. Tecnología QR, reportes en tiempo real y un equipo profesional para que tus asistentes entren sin colas.">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="canonical" href="https://forward.do/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_DO">
+  <meta property="og:site_name" content="Forward Access">
+  <meta property="og:title" content="Forward Access — Registro y control de acceso para eventos">
+  <meta property="og:description" content="Forward Access es una empresa de registro y control de acceso para eventos en República Dominicana. Tecnología QR, reportes en tiempo real y un equipo profesional para que tus asistentes entren sin colas.">
+  <meta property="og:url" content="https://forward.do/">
+  <meta property="og:image" content="https://forward.do/assets/img/video-poster.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/png" href="assets/img/brand/favicon.png">
+  <link rel="apple-touch-icon" href="assets/img/brand/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@300;400;500;600;700&display=swap">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <script>(function(d){var r=d.documentElement;r.classList.add('js');if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches)r.classList.add('is-loading');setTimeout(function(){if(!window.__fa){r.classList.add('no-anim');r.classList.remove('is-loading');}},3500);})(document);</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Forward Access SRL",
+  "alternateName": "Forward Access",
+  "url": "https://forward.do/",
+  "logo": "https://forward.do/assets/img/brand/logo-dark.png",
+  "image": "https://forward.do/assets/img/video-poster.jpg",
+  "description": "Empresa de registro y control de acceso para eventos en República Dominicana.",
+  "email": "forwardaccesssrl@gmail.com",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Santo Domingo",
+    "addressRegion": "Distrito Nacional",
+    "addressCountry": "DO"
+  },
+  "sameAs": [
+    "https://www.instagram.com/forwardaccess/",
+    "https://www.facebook.com/forwardaccess/"
+  ]
+}
+</script></head>
+<body>
+<a class="skip-link" href="#contenido">Saltar al contenido</a>
+<svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
+  <defs>
+    <linearGradient id="ringGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2b5fd9"/><stop offset="1" stop-color="#08bcd6"/></linearGradient>
+  </defs>
+  <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
+  <symbol id="i-arrow-up-right" viewBox="0 0 24 24"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></symbol>
+  <symbol id="i-arrow-up" viewBox="0 0 24 24"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></symbol>
+  <symbol id="i-chevron-left" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></symbol>
+  <symbol id="i-chevron-right" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
+  <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><path d="M6 4.2v15.6a1 1 0 0 0 1.5.86l13-7.8a1 1 0 0 0 0-1.72l-13-7.8A1 1 0 0 0 6 4.2Z" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></symbol>
+  <symbol id="i-hourglass" viewBox="0 0 24 24"><path d="M5 22h14"/><path d="M5 2h14"/><path d="M17 22v-4.17a2 2 0 0 0-.59-1.42L12 12l-4.41 4.41A2 2 0 0 0 7 17.83V22"/><path d="M7 2v4.17a2 2 0 0 0 .59 1.42L12 12l4.41-4.41A2 2 0 0 0 17 6.17V2"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+  <symbol id="i-handshake" viewBox="0 0 24 24"><path d="m11 17 2 2a1 1 0 1 0 3-3"/><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4"/><path d="m21 3 1 11h-2"/><path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3"/><path d="M3 4h8"/></symbol>
+  <symbol id="i-laptop-code" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M2 20h20"/><path d="m10 8-2 2 2 2"/><path d="m14 8 2 2-2 2"/></symbol>
+  <symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="m15.48 12.89 1.51 8.53a.5.5 0 0 1-.81.47l-3.58-2.69a1 1 0 0 0-1.2 0l-3.59 2.69a.5.5 0 0 1-.81-.47l1.51-8.53"/></symbol>
+  <symbol id="i-history" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l4 2"/></symbol>
+  <symbol id="i-ticket" viewBox="0 0 24 24"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M13 5v2"/><path d="M13 17v2"/><path d="M13 11v2"/></symbol>
+  <symbol id="i-list-checks" viewBox="0 0 24 24"><path d="m3 17 2 2 4-4"/><path d="m3 7 2 2 4-4"/><path d="M13 6h8"/><path d="M13 12h8"/><path d="M13 18h8"/></symbol>
+  <symbol id="i-forward" viewBox="0 0 24 24"><path d="M13 19 22 12 13 5Z"/><path d="M2 19 11 12 2 5Z"/></symbol>
+  <symbol id="i-map-pin" viewBox="0 0 24 24"><path d="M20 10c0 5-5.54 10.19-7.4 11.8a1 1 0 0 1-1.2 0C9.54 20.19 4 15 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
+  <symbol id="i-instagram" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><path d="M17.5 6.5h.01"/></symbol>
+  <symbol id="i-facebook" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></symbol>
+  <symbol id="i-log-in" viewBox="0 0 24 24"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><path d="m10 17 5-5-5-5"/><path d="M15 12H3"/></symbol>
+  <symbol id="i-shield-check" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></symbol>
+  <symbol id="i-qr" viewBox="0 0 24 24"><rect x="3" y="3" width="5" height="5" rx="1"/><rect x="16" y="3" width="5" height="5" rx="1"/><rect x="3" y="16" width="5" height="5" rx="1"/><path d="M21 16h-3a2 2 0 0 0-2 2v3"/><path d="M21 21v.01"/><path d="M12 7v3a2 2 0 0 1-2 2H7"/><path d="M3 12h.01"/><path d="M12 3h.01"/><path d="M12 16v.01"/><path d="M16 12h1"/><path d="M21 12v.01"/><path d="M12 21v-1"/></symbol>
+  <symbol id="i-whatsapp" viewBox="0 0 24 24"><path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21"/><path d="M9 10a.5.5 0 0 0 1 0V9a.5.5 0 0 0-1 0v1a5 5 0 0 0 5 5h1a.5.5 0 0 0 0-1h-1a.5.5 0 0 0 0 1"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></symbol>
+  <symbol id="i-send" viewBox="0 0 24 24"><path d="M14.54 21.69a.5.5 0 0 0 .94-.03l6.5-19a.5.5 0 0 0-.64-.63l-19 6.5a.5.5 0 0 0-.02.93l7.93 3.18a2 2 0 0 1 1.11 1.11z"/><path d="m21.85 2.15-10.94 10.94"/></symbol>
+  <symbol id="i-rotate" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></symbol>
+  <symbol id="i-calendar" viewBox="0 0 24 24"><path d="M8 2v4"/><path d="M16 2v4"/><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18"/></symbol>
+  <symbol id="i-quote" viewBox="0 0 24 24"><path fill="url(#ringGrad)" stroke="none" d="M10.2 4.5C6.2 5.9 3 9.5 3 14.6V20h7.4v-7.4H6.6c.3-3 2.1-5.3 4.6-6.4zM21 4.5c-4 1.4-7.2 5-7.2 10.1V20h7.4v-7.4h-3.8c.3-3 2.1-5.3 4.6-6.4z"/></symbol>
+  <symbol id="i-sparkles" viewBox="0 0 24 24"><path d="M9.94 15.5A2 2 0 0 0 8.5 14.06l-6.14-1.58a.5.5 0 0 1 0-.96L8.5 9.94A2 2 0 0 0 9.94 8.5l1.58-6.14a.5.5 0 0 1 .96 0l1.58 6.14a2 2 0 0 0 1.44 1.44l6.14 1.58a.5.5 0 0 1 0 .96l-6.14 1.58a2 2 0 0 0-1.44 1.44l-1.58 6.14a.5.5 0 0 1-.96 0z"/></symbol>
+</svg>
+
+<div class="pt" aria-hidden="true">
+  <div class="pt__panel pt__panel--accent"></div>
+  <div class="pt__panel pt__panel--ink"></div>
+  <div class="pt__brand">
+    <img src="assets/img/brand/logo-light.png" alt="" width="428" height="420">
+    <div class="pt__progress"><span></span></div>
+  </div>
+</div>
+
+<header class="nav nav--light" id="top">
+  <div class="container">
+    <div class="nav__bar">
+      <a class="nav__logo" href="index.html" aria-label="Forward Access — Inicio">
+        <img class="logo-light" src="assets/img/brand/logo-h-light.png" alt="Forward Access" width="721" height="200">
+        <img class="logo-dark" src="assets/img/brand/logo-h-dark.png" alt="" width="721" height="200">
+      </a>
+      <nav class="nav__links" aria-label="Principal">
+          <a class="nav__link is-active" href="index.html" aria-current="page">Inicio</a>
+          <a class="nav__link" href="eventos.html">Eventos</a>
+          <a class="nav__link" href="productores.html">Productores</a>
+          <a class="nav__link" href="cotizacion.html">Cotización</a>
+      </nav>
+      <div class="nav__actions">
+        <a class="btn btn--primary btn--sm nav__cta" href="cotizacion.html">Cotizar evento <svg class="icon icon--go" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
+        <button class="nav__toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu"><span></span><span></span></button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="menu" id="menu" aria-hidden="true">
+  <nav class="menu__links" aria-label="Menú móvil">
+      <a class="is-active" href="index.html" style="--i:0" aria-current="page"><small>01</small>Inicio</a>
+      <a class="" href="eventos.html" style="--i:1"><small>02</small>Eventos</a>
+      <a class="" href="productores.html" style="--i:2"><small>03</small>Productores</a>
+      <a class="" href="cotizacion.html" style="--i:3"><small>04</small>Cotización</a>
+  </nav>
+  <div class="menu__foot">
+    <a class="btn btn--primary btn--block" href="cotizacion.html">Solicitar cotización <svg class="icon icon--go" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
+    <div class="menu__row">
+      <div class="menu__contact">
+        <span>Santo Domingo, Distrito Nacional</span>
+        <a href="mailto:forwardaccesssrl@gmail.com">forwardaccesssrl@gmail.com</a>
+      </div>
+      <div class="socials">
+        <a href="https://www.instagram.com/forwardaccess/" target="_blank" rel="noopener" aria-label="Instagram"><svg class="icon" aria-hidden="true"><use href="#i-instagram"/></svg></a>
+        <a href="https://www.facebook.com/forwardaccess/" target="_blank" rel="noopener" aria-label="Facebook"><svg class="icon" aria-hidden="true"><use href="#i-facebook"/></svg></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<main id="contenido">
+
+<!-- ============================ HERO ============================ -->
+<section class="hero hero--light" aria-label="Presentación">
+
+  <div class="container hero__inner">
+    <div class="hero__copy">
+      <span class="pill"><svg class="icon" aria-hidden="true"><use href="#i-shield-check"/></svg>Registro y control de acceso para eventos</span>
+
+      <h1 class="hero__title">
+        <span class="hero__line">Controlamos tu <em>acceso</em> por ti.</span>
+        <span class="hero__line">Despliegue <em>tecnológico</em> y profesional.</span>
+        <span class="hero__line hero__line--sm">Información en <em>tiempo real</em> del control de acceso.</span>
+      </h1>
+
+      <p class="lead hero__lead">Ponemos a tu disposición tecnología, formación y experiencia para evitar cuellos de botella en el control de accesos de tu evento.</p>
+
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="cotizacion.html" data-magnetic>Solicitar cotización <svg class="icon icon--go" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
+        <a class="btn btn--outline" href="#video"><span class="btn__play"><svg class="icon" aria-hidden="true"><use href="#i-play"/></svg></span>Ver video</a>
+      </div>
+
+      <div class="hero__controls">
+        <span class="hero__counter"><strong class="hero__current">01</strong> / 03</span>
+        <div class="hero__bars" role="group" aria-label="Diapositivas">
+          <button class="hero__bar is-active" type="button" aria-label="Diapositiva 1"><span></span></button>
+          <button class="hero__bar" type="button" aria-label="Diapositiva 2"><span></span></button>
+          <button class="hero__bar" type="button" aria-label="Diapositiva 3"><span></span></button>
+        </div>
+        <div class="hero__arrows">
+          <button class="round-btn" type="button" data-hero-prev aria-label="Anterior"><svg class="icon" aria-hidden="true"><use href="#i-chevron-left"/></svg></button>
+          <button class="round-btn" type="button" data-hero-next aria-label="Siguiente"><svg class="icon" aria-hidden="true"><use href="#i-chevron-right"/></svg></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero__media">
+      <div class="hero__frame">
+        <div class="hero__slide is-active"><img src="assets/img/slider-1.webp" alt="Tecnología de control de acceso" width="2200" height="943" fetchpriority="high"></div>
+        <div class="hero__slide"><img src="assets/img/slider-2.webp" alt="Validación de acceso sin contacto en un torniquete" width="1800" height="1087" decoding="async"></div>
+        <div class="hero__slide"><img src="assets/img/codigoqr.webp" alt="Asistente mostrando su boleto con código QR" width="2000" height="1332" decoding="async"></div>
+        <div class="hero__caption"><span class="live-dot"></span><span data-caption>Control de acceso inteligente</span><span data-caption hidden>Validación sin contacto</span><span data-caption hidden>Boletos con código QR</span></div>
+      </div>
+
+      <div class="float-card float-card--a" aria-hidden="true">
+        <div class="float-card__inner" style="display:flex;align-items:center;gap:12px">
+          <span class="float-card__icon"><svg class="icon" aria-hidden="true"><use href="#i-shield-check"/></svg></span>
+          <span><strong>Acceso validado</strong>Entrada única por QR</span>
+        </div>
+      </div>
+      <div class="float-card float-card--b" aria-hidden="true">
+        <div class="float-card__inner" style="display:flex;align-items:center;gap:14px">
+          <span class="mini-bars"><i></i><i></i><i></i><i></i><i></i></span>
+          <span><strong>Tiempo real</strong>Reportes vía WhatsApp y web</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container hero__features">
+    <div class="features-strip">
+      <a class="feature-link" href="eventos.html">
+        <span class="feature-link__icon"><svg class="icon" aria-hidden="true"><use href="#i-hourglass"/></svg></span>
+        <span><span class="feature-link__title">Efectividad</span><span class="feature-link__text">Registro rápido y eficaz</span></span>
+        <span class="feature-link__arrow" aria-hidden="true"><svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></span>
+      </a>
+      <a class="feature-link" href="cotizacion.html">
+        <span class="feature-link__icon"><svg class="icon" aria-hidden="true"><use href="#i-users"/></svg></span>
+        <span><span class="feature-link__title">Contacto</span><span class="feature-link__text">El primer contacto con tus asistentes</span></span>
+        <span class="feature-link__arrow" aria-hidden="true"><svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></span>
+      </a>
+      <a class="feature-link" href="productores.html">
+        <span class="feature-link__icon"><svg class="icon" aria-hidden="true"><use href="#i-handshake"/></svg></span>
+        <span><span class="feature-link__title">Actitud</span><span class="feature-link__text">Profesionalidad en cada acceso</span></span>
+        <span class="feature-link__arrow" aria-hidden="true"><svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ PRODUCTORES (marquesina) ============================ -->
+<section class="logos logos--light" aria-label="Productores y promotores">
+  <p class="logos__label">Productores y promotores que confían en nosotros</p>
+  <div class="marquee" style="--duration:38s">
+      <div class="marquee__track"><div class="logo-chip"><img src="assets/img/productores/sd.webp" alt="" width="600" height="600" loading="lazy"><span>SD Concerts</span></div><div class="logo-chip"><img src="assets/img/productores/pav.webp" alt="" width="600" height="600" loading="lazy"><span>PAV Events</span></div><div class="logo-chip"><img src="assets/img/productores/edlive.webp" alt="" width="600" height="600" loading="lazy"><span>ED Live Events</span></div><div class="logo-chip"><img src="assets/img/productores/skypro.webp" alt="" width="600" height="600" loading="lazy"><span>Skypro</span></div><div class="logo-chip"><img src="assets/img/productores/batalla-fe.webp" alt="" width="600" height="600" loading="lazy"><span>La Batalla de la Fe</span></div><div class="logo-chip"><img src="assets/img/productores/logofifa.webp" alt="" width="600" height="600" loading="lazy"><span>FIFA</span></div><div class="logo-chip"><img src="assets/img/productores/elogic.webp" alt="" width="600" height="600" loading="lazy"><span>Elogic</span></div><div class="logo-chip"><img src="assets/img/productores/gl.webp" alt="" width="600" height="600" loading="lazy"><span>GL Sports Events</span></div></div>
+      <div class="marquee__track" aria-hidden="true"><div class="logo-chip"><img src="assets/img/productores/sd.webp" alt="" width="600" height="600" loading="lazy"><span>SD Concerts</span></div><div class="logo-chip"><img src="assets/img/productores/pav.webp" alt="" width="600" height="600" loading="lazy"><span>PAV Events</span></div><div class="logo-chip"><img src="assets/img/productores/edlive.webp" alt="" width="600" height="600" loading="lazy"><span>ED Live Events</span></div><div class="logo-chip"><img src="assets/img/productores/skypro.webp" alt="" width="600" height="600" loading="lazy"><span>Skypro</span></div><div class="logo-chip"><img src="assets/img/productores/batalla-fe.webp" alt="" width="600" height="600" loading="lazy"><span>La Batalla de la Fe</span></div><div class="logo-chip"><img src="assets/img/productores/logofifa.webp" alt="" width="600" height="600" loading="lazy"><span>FIFA</span></div><div class="logo-chip"><img src="assets/img/productores/elogic.webp" alt="" width="600" height="600" loading="lazy"><span>Elogic</span></div><div class="logo-chip"><img src="assets/img/productores/gl.webp" alt="" width="600" height="600" loading="lazy"><span>GL Sports Events</span></div></div>
+    </div>
+</section>
+
+<!-- ============================ VIDEO ============================ -->
+<section class="section section--paper" id="video" aria-labelledby="video-title">
+  <div class="container">
+    <div class="section-head section-head--split">
+      <div>
+        <span class="eyebrow" data-reveal>Video institucional</span>
+        <h2 class="h-1" id="video-title" data-split>Conoce Forward Access en acción.</h2>
+      </div>
+      <p class="lead" data-reveal>El control de accesos es clave para que la gestión de entradas se complete con éxito, la experiencia del público sea satisfactoria y se cumplan las condiciones de compra establecidas por el promotor.</p>
+    </div>
+
+    <div class="video" data-video="-zTTXHuu6jU">
+      <img class="video__poster" src="assets/img/video-poster.webp" alt="" width="1920" height="1080" loading="lazy">
+      <div class="video__player"></div>
+      <button class="video__overlay video__overlay--start" type="button" data-video-play aria-label="Reproducir video">
+        <span class="video__play"><svg class="icon" aria-hidden="true"><use href="#i-play"/></svg></span>
+        <span class="video__meta"><span class="video__label">Reproducir video</span><span class="video__name">Forward Access · Control de acceso para eventos</span></span>
+      </button>
+      <div class="video__overlay video__overlay--end">
+        <img src="assets/img/brand/mark.png" alt="" width="388" height="261">
+        <h3>Gracias por ver el video</h3>
+        <button class="btn btn--primary btn--sm" type="button" data-video-play><svg class="icon" aria-hidden="true"><use href="#i-rotate"/></svg> Reproducir de nuevo</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ MISIÓN / VISIÓN / VALORES ============================ -->
+<section class="section section--white" aria-labelledby="why-company">
+  <div class="container">
+    <div class="section-head section-head--center">
+      <span class="eyebrow" data-reveal>Quiénes somos</span>
+      <h2 class="h-1" id="why-company" data-split>¿Por qué una empresa de control de acceso para eventos?</h2>
+    </div>
+
+    <div class="pillars">
+      <article class="pillar" data-reveal>
+        <div class="pillar__media"><img src="assets/img/evento_1.webp" alt="Planificación del registro de un evento" width="1200" height="904" loading="lazy"><span class="pillar__num">01</span></div>
+        <div class="pillar__body">
+          <h3 class="pillar__title"><a href="eventos.html">Misión</a><span class="pillar__go" aria-hidden="true"><svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></span></h3>
+          <p class="pillar__text">Somos una empresa de registro y control de acceso para eventos que se adapta a las necesidades de nuestros clientes ofreciendo soluciones efectivas e innovadoras.</p>
+        </div>
+      </article>
+      <article class="pillar" data-reveal>
+        <div class="pillar__media"><img src="assets/img/evento_2.webp" alt="Equipo de trabajo revisando la estrategia del evento" width="1200" height="904" loading="lazy"><span class="pillar__num">02</span></div>
+        <div class="pillar__body">
+          <h3 class="pillar__title"><a href="eventos.html">Visión</a><span class="pillar__go" aria-hidden="true"><svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></span></h3>
+          <p class="pillar__text">Buscamos ser la empresa de referencia en el registro y control de accesos para eventos, ofreciendo las más modernas tecnologías para que el acceso sea más agradable.</p>
+        </div>
+      </article>
+      <article class="pillar" data-reveal>
+        <div class="pillar__media"><img src="assets/img/evento_3.webp" alt="Piedra con la palabra cooperativo en la mano de una persona" width="1200" height="904" loading="lazy"><span class="pillar__num">03</span></div>
+        <div class="pillar__body">
+          <h3 class="pillar__title"><a href="eventos.html">Valores</a><span class="pillar__go" aria-hidden="true"><svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></span></h3>
+          <p class="pillar__text">La primera impresión es vital. Condiciona la actitud y valoración general de los asistentes.</p>
+          <ul class="chips" aria-label="Nuestros valores">
+            <li class="chip">Innovación</li><li class="chip">Resolución</li><li class="chip">Responsabilidad</li><li class="chip">Profesionalidad</li><li class="chip">Creatividad</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ TALENTO + REPORTES ============================ -->
+<section class="section section--dark talent on-dark" aria-labelledby="talent-title">
+  <div class="container">
+    <div class="talent__grid">
+      <div>
+        <span class="eyebrow" data-reveal>Gestión de entradas</span>
+        <h2 class="talent__title" id="talent-title" data-split>Apoyamos el talento de los organizadores de eventos a través de la gestión de entradas.</h2>
+        <p class="lead talent__text" data-reveal>El control de accesos es clave para que la gestión de entradas se complete con éxito, la experiencia del público sea satisfactoria y se cumplan las condiciones de compra establecidas por el promotor cultural. Ponemos a tu disposición tecnología, formación y experiencia para evitar cuellos de botella en el control de accesos de tu evento.</p>
+        <div class="talent__actions" data-reveal>
+          <a class="btn btn--primary" href="cotizacion.html" data-magnetic>Regístrate ahora <svg class="icon icon--go" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
+        </div>
+      </div>
+
+      <div class="report" data-reveal>
+        <h3 class="report__title">Ver informe en tiempo real a través de WhatsApp o en línea</h3>
+        <p class="report__sub">Consulta al instante cómo avanza el acceso de tu evento, desde donde estés.</p>
+        <div class="report__channels">
+          <span class="report__channel"><svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg> WhatsApp</span>
+          <span class="report__channel"><svg class="icon" aria-hidden="true"><use href="#i-globe"/></svg> En línea</span>
+          <span class="report__channel"><svg class="icon" aria-hidden="true"><use href="#i-qr"/></svg> Escaneo QR</span>
+        </div>
+
+        <div class="dash" data-dash aria-hidden="true">
+          <div class="dash__top">
+            <span class="dash__live"><span class="live-dot"></span>En vivo</span>
+            <span>Panel de acceso</span>
+          </div>
+          <div class="dash__main">
+            <div>
+              <div class="dash__label">Ingresos validados</div>
+              <div class="dash__value" data-dash-value data-start="3482">3,482</div>
+            </div>
+            <div class="dash__ring">
+              <svg viewBox="0 0 76 76"><circle class="bg" cx="38" cy="38" r="32"/><circle class="fg" cx="38" cy="38" r="32"/></svg>
+              <span data-dash-pct>67%</span>
+            </div>
+          </div>
+          <div class="dash__gates">
+            <div class="gate" data-gate><span>Puerta A</span><div class="gate__bar"><span style="width:62%"></span></div><b data-v="1364">1,364</b></div>
+            <div class="gate" data-gate><span>Puerta B</span><div class="gate__bar"><span style="width:51%"></span></div><b data-v="1122">1,122</b></div>
+            <div class="gate" data-gate><span>VIP</span><div class="gate__bar"><span style="width:45%"></span></div><b data-v="996">996</b></div>
+          </div>
+        </div>
+        <p class="dash__note">Vista ilustrativa del panel de reportes.</p>
+        <a class="btn btn--primary btn--block report__cta" href="https://forwardaccess.in/admin" target="_blank" rel="noopener">Ingresar a reportes en línea <svg class="icon icon--out" aria-hidden="true"><use href="#i-arrow-up-right"/></svg></a>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="stat" data-reveal>
+        <div class="stat__value text-grad" data-count="13" data-suffix="+">13+</div>
+        <p class="stat__label">Años de experiencia en la industria de registro para eventos.</p>
+      </div>
+      <div class="stat" data-reveal>
+        <div class="stat__value text-grad" data-count="50" data-suffix="+">50+</div>
+        <p class="stat__label">Eventos en nuestro portafolio de clientes, de conciertos a competencias internacionales.</p>
+      </div>
+      <div class="stat" data-reveal>
+        <div class="stat__value text-grad">1:1</div>
+        <p class="stat__label">Un código QR, una entrada: detectamos boletos falsos y duplicados.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ SERVICIOS ============================ -->
+<section class="section section--paper" aria-labelledby="services-title">
+  <div class="container">
+    <div class="section-head section-head--center">
+      <span class="eyebrow" data-reveal>Servicios</span>
+      <h2 class="h-1" id="services-title" data-split>¿Qué hacemos por ti?</h2>
+    </div>
+    <div class="services">
+      <article class="service" data-reveal data-spotlight>
+        <div class="service__top"><span class="service__icon"><svg class="icon" aria-hidden="true"><use href="#i-laptop-code"/></svg></span><span class="service__num">01</span></div>
+        <h3 class="h-3">Disminuye el estrés</h3>
+        <p>Nuestro software de registro permite realizar un registro rápido y eficaz. ¡Sin colas, sin estrés!</p>
+      </article>
+      <article class="service" data-reveal data-spotlight>
+        <div class="service__top"><span class="service__icon"><svg class="icon" aria-hidden="true"><use href="#i-award"/></svg></span><span class="service__num">02</span></div>
+        <h3 class="h-3">Mejoramos la imagen del evento</h3>
+        <p>Nuestro registro profesional para eventos mejora la imagen, logrando una sensación de organización y profesionalidad.</p>
+      </article>
+      <article class="service" data-reveal data-spotlight>
+        <div class="service__top"><span class="service__icon"><svg class="icon" aria-hidden="true"><use href="#i-history"/></svg></span><span class="service__num">03</span></div>
+        <h3 class="h-3">Reducimos los tiempos de espera</h3>
+        <p>Organizamos el acceso de los asistentes previamente, logrando así una acreditación en sitio más rápida.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ CITAS ============================ -->
+<section class="section quotes" aria-labelledby="quotes-title">
+  <div class="quotes__bg" aria-hidden="true"><img src="assets/img/Events-Entertainment-Ticketing.webp" alt="" width="1920" height="1082" loading="lazy" data-parallax="8"></div>
+  <div class="container on-dark">
+    <div class="section-head section-head--center">
+      <span class="eyebrow" data-reveal>Control de accesos</span>
+      <h2 class="h-1" id="quotes-title" data-split>El primer contacto entre tus asistentes y tu empresa</h2>
+    </div>
+
+    <div class="quotes__slider" data-quotes data-reveal>
+      <blockquote class="quote">
+        <svg class="quote__mark" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-quote"/></svg>
+        <p class="quote__text">El control de accesos es el sistema con más versatilidad y que mejores resultados puede darnos entre las diferentes clases de registro en eventos. Además, nos proporciona información relevante para conocer los puntos fuertes y débiles de nuestro evento. Se trata de un sistema mucho más veraz que las propias encuestas, puesto que podemos ver el comportamiento y la respuesta de los asistentes a nuestras propuestas.</p>
+      </blockquote>
+      <blockquote class="quote">
+        <svg class="quote__mark" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-quote"/></svg>
+        <p class="quote__text">En nuestra experiencia hemos podido detectar cómo speakers muy bien valorados en las encuestas apenas tienen audiencia, o bien tienen una audiencia fugaz: asistentes que entran y no permanecen mucho tiempo en la ponencia.</p>
+      </blockquote>
+      <blockquote class="quote">
+        <svg class="quote__mark" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-quote"/></svg>
+        <p class="quote__text">Gracias al control de entrada podemos conocer <b>quién tiene derecho a entrar al evento, es decir, quién ha pagado por asistir.</b> De esta forma añadimos seguridad a nuestro evento. Podemos descubrir además boletos falsos o duplicidades en los QR, puesto que solo se permite la entrada única de una persona por QR.</p>
+      </blockquote>
+    </div>
+
+    <div class="quotes__nav" data-reveal>
+      <button class="round-btn" type="button" data-quotes-prev aria-label="Anterior"><svg class="icon" aria-hidden="true"><use href="#i-chevron-left"/></svg></button>
+      <div class="quotes__dots">
+        <button class="quotes__dot" type="button" aria-label="Cita 1"><span></span></button>
+        <button class="quotes__dot" type="button" aria-label="Cita 2"><span></span></button>
+        <button class="quotes__dot" type="button" aria-label="Cita 3"><span></span></button>
+      </div>
+      <button class="round-btn" type="button" data-quotes-next aria-label="Siguiente"><svg class="icon" aria-hidden="true"><use href="#i-chevron-right"/></svg></button>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ POR QUÉ NOSOTROS ============================ -->
+<section class="section section--white" aria-labelledby="whyus-title">
+  <div class="container why">
+    <div class="why__intro">
+      <span class="eyebrow" data-reveal>Por qué elegirnos</span>
+      <h2 class="h-1" id="whyus-title" data-split>¿Por qué nosotros?</h2>
+      <p class="lead" data-reveal>Experiencia, atención personalizada e innovación al servicio de cada evento, para que el acceso sea rápido, seguro y agradable.</p>
+      <a class="btn btn--dark" href="cotizacion.html" data-reveal>Solicitar cotización <svg class="icon icon--go" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
+    </div>
+    <div class="why__list">
+      <article class="why-item" data-reveal>
+        <div class="why-item__media"><img src="assets/img/boletaje-eventos-1.webp" alt="Validación de boletos con dispositivo móvil" width="1000" height="520" loading="lazy"></div>
+        <div class="why-item__body">
+          <span class="why-item__icon"><svg class="icon" aria-hidden="true"><use href="#i-ticket"/></svg></span>
+          <h3>Experiencia</h3>
+          <p>Más de 13 años en la industria de registro para eventos.</p>
+        </div>
+      </article>
+      <article class="why-item" data-reveal>
+        <div class="why-item__media"><img src="assets/img/slider-001.webp" alt="Atención personalizada mediante tecnología" width="1000" height="545" loading="lazy"></div>
+        <div class="why-item__body">
+          <span class="why-item__icon"><svg class="icon" aria-hidden="true"><use href="#i-list-checks"/></svg></span>
+          <h3>Personalización</h3>
+          <p>Servicio al cliente personalizado. ¡Cada cliente y cada evento es único!</p>
+        </div>
+      </article>
+      <article class="why-item" data-reveal>
+        <div class="why-item__media"><img src="assets/img/innovacion.webp" alt="Innovación tecnológica aplicada al registro" width="1000" height="477" loading="lazy"></div>
+        <div class="why-item__body">
+          <span class="why-item__icon"><svg class="icon" aria-hidden="true"><use href="#i-forward"/></svg></span>
+          <h3>Innovación</h3>
+          <p>Somos pioneros en innovación y tecnología de registro y eventos.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ VITRINA DE EVENTOS ============================ -->
+<section class="section section--paper showcase" aria-labelledby="showcase-title">
+  <div class="container">
+    <div class="section-head section-head--center">
+      <span class="eyebrow" data-reveal>Nuestros clientes</span>
+      <h2 class="h-1" id="showcase-title" data-split>Eventos que confían en nosotros</h2>
+      <p class="lead" data-reveal>Conciertos, festivales, competencias deportivas internacionales y eventos corporativos.</p>
+    </div>
+  </div>
+  <div class="marquee" style="--duration:75s">
+      <div class="marquee__track"><figure class="poster"><img src="assets/img/eventos/57.webp" alt="Ramón Orlando y sus Amigos 50 Años - Estadio Olímpico" width="600" height="600" loading="lazy"><figcaption>Ramón Orlando y sus Amigos 50 Años - Estadio Olímpico</figcaption></figure><figure class="poster"><img src="assets/img/eventos/58.webp" alt="Days to Shine 2026 - Hotel El Embajador" width="600" height="600" loading="lazy"><figcaption>Days to Shine 2026 - Hotel El Embajador</figcaption></figure><figure class="poster"><img src="assets/img/eventos/1.webp" alt="Copa Mundial Femenina Sub17 de la FIFA 2024" width="600" height="600" loading="lazy"><figcaption>Copa Mundial Femenina Sub17 de la FIFA 2024</figcaption></figure><figure class="poster"><img src="assets/img/eventos/3.webp" alt="Erreway Tour 2025 - Estadio de Softball" width="600" height="600" loading="lazy"><figcaption>Erreway Tour 2025 - Estadio de Softball</figcaption></figure><figure class="poster"><img src="assets/img/eventos/8.webp" alt="Rod Stewart - Estadio de Softball Centro Olímpico" width="600" height="600" loading="lazy"><figcaption>Rod Stewart - Estadio de Softball Centro Olímpico</figcaption></figure><figure class="poster"><img src="assets/img/eventos/9.webp" alt="The Messi Experience" width="600" height="600" loading="lazy"><figcaption>The Messi Experience</figcaption></figure><figure class="poster"><img src="assets/img/eventos/2.webp" alt="Fiba Basketball World Cup 2027 Qualifiers" width="600" height="600" loading="lazy"><figcaption>Fiba Basketball World Cup 2027 Qualifiers</figcaption></figure><figure class="poster"><img src="assets/img/eventos/12.webp" alt="Corona Sunsets Festival - Jungle" width="600" height="600" loading="lazy"><figcaption>Corona Sunsets Festival - Jungle</figcaption></figure><figure class="poster"><img src="assets/img/eventos/14.webp" alt="Black Coffee Punta Cana Resort" width="600" height="600" loading="lazy"><figcaption>Black Coffee Punta Cana Resort</figcaption></figure><figure class="poster"><img src="assets/img/eventos/20.webp" alt="Franco Escamilla Auditorio La Fama" width="600" height="600" loading="lazy"><figcaption>Franco Escamilla Auditorio La Fama</figcaption></figure><figure class="poster"><img src="assets/img/eventos/24.webp" alt="Pimpinela - Siempre Juntos" width="600" height="600" loading="lazy"><figcaption>Pimpinela - Siempre Juntos</figcaption></figure><figure class="poster"><img src="assets/img/eventos/32.webp" alt="Karate Combat KC-42" width="600" height="600" loading="lazy"><figcaption>Karate Combat KC-42</figcaption></figure><figure class="poster"><img src="assets/img/eventos/10.webp" alt="Yokoi Kenji 2025 | Furinkazan | Cap Cana" width="600" height="600" loading="lazy"><figcaption>Yokoi Kenji 2025 | Furinkazan | Cap Cana</figcaption></figure><figure class="poster"><img src="assets/img/eventos/45.webp" alt="Whispers Mansion - Bryant Myers" width="600" height="600" loading="lazy"><figcaption>Whispers Mansion - Bryant Myers</figcaption></figure></div>
+      <div class="marquee__track" aria-hidden="true"><figure class="poster"><img src="assets/img/eventos/57.webp" alt="" width="600" height="600" loading="lazy"><figcaption>Ramón Orlando y sus Amigos 50 Años - Estadio Olímpico</figcaption></figure><figure class="poster"><img src="assets/img/eventos/58.webp" alt="" width="600" height="600" loading="lazy"><figcaption>Days to Shine 2026 - Hotel El Embajador</figcaption></figure><figure class="poster"><img src="assets/img/eventos/1.webp" alt="" width="600" height="600" loading="lazy"><figcaption>Copa Mundial Femenina Sub17 de la FIFA 2024</figcaption></figure><figure class="poster"><img src="assets/img/eventos/3.webp" alt="" width="600" height="600" loading="lazy"><figcaption>Erreway Tour 2025 - Estadio de Softball</figcaption></figure><figure class="poster"><img src="assets/img/eventos/8.webp" alt="" width="600" height="600" loading="lazy"><figcaption>Rod Stewart - Estadio de Softball Centro Olímpico</figcaption></figure><figure class="poster"><img src="assets/img/eventos/9.webp" alt="" width="600" height="600" loading="lazy"><figcaption>The Messi Experience</figcaption></figure><figure class="poster"><img src="assets/img/eventos/2.webp" alt="" width="600" height="600" loading="lazy"><figcaption>Fiba Basketball World Cup 2027 Qualifiers</figcaption></figure><figure class="poster"><img src="assets/img/eventos/12.webp" alt="" width="600" height="600" loading="lazy"><figcaption>Corona Sunsets Festival - Jungle</figcaption></figure><figure class="poster"><img src="assets/img/eventos/14.webp" alt="" width="600" height="600" loading="lazy"><figcaption>Black Coffee Punta Cana Resort</figcaption></figure><figure class="poster"><img src="assets/img/eventos/20.webp" alt="" width="600" height="600" loading="lazy"><figcaption>Franco Escamilla Auditorio La Fama</figcaption></figure><figure class="poster"><img src="assets/img/eventos/24.webp" alt="" width="600" height="600" loading="lazy"><figcaption>Pimpinela - Siempre Juntos</figcaption></figure><figure class="poster"><img src="assets/img/eventos/32.webp" alt="" width="600" height="600" loading="lazy"><figcaption>Karate Combat KC-42</figcaption></figure><figure class="poster"><img src="assets/img/eventos/10.webp" alt="" width="600" height="600" loading="lazy"><figcaption>Yokoi Kenji 2025 | Furinkazan | Cap Cana</figcaption></figure><figure class="poster"><img src="assets/img/eventos/45.webp" alt="" width="600" height="600" loading="lazy"><figcaption>Whispers Mansion - Bryant Myers</figcaption></figure></div>
+    </div>
+  <div class="marquee marquee--reverse" style="--duration:80s">
+      <div class="marquee__track"><figure class="poster"><img src="assets/img/eventos/5.webp" alt="Partido Clasificatorio al Mundial de Fútbol Rep. Dom" width="600" height="600" loading="lazy"><figcaption>Partido Clasificatorio al Mundial de Fútbol Rep. Dom</figcaption></figure><figure class="poster"><img src="assets/img/eventos/6.webp" alt="2025-Fiba Americup 2025 Qualifiers" width="600" height="600" loading="lazy"><figcaption>2025-Fiba Americup 2025 Qualifiers</figcaption></figure><figure class="poster"><img src="assets/img/eventos/15.webp" alt="Corona Sunsets - Rawayana" width="600" height="600" loading="lazy"><figcaption>Corona Sunsets - Rawayana</figcaption></figure><figure class="poster"><img src="assets/img/eventos/18.webp" alt="Black Coffee Playa Montecinos" width="600" height="600" loading="lazy"><figcaption>Black Coffee Playa Montecinos</figcaption></figure><figure class="poster"><img src="assets/img/eventos/22.webp" alt="Manuel Medrano" width="600" height="600" loading="lazy"><figcaption>Manuel Medrano</figcaption></figure><figure class="poster"><img src="assets/img/eventos/25.webp" alt="Flor Bertotti" width="600" height="600" loading="lazy"><figcaption>Flor Bertotti</figcaption></figure><figure class="poster"><img src="assets/img/eventos/30.webp" alt="Jerry Di" width="600" height="600" loading="lazy"><figcaption>Jerry Di</figcaption></figure><figure class="poster"><img src="assets/img/eventos/53.webp" alt="TWE - Mario Alonso Puig" width="600" height="600" loading="lazy"><figcaption>TWE - Mario Alonso Puig</figcaption></figure><figure class="poster"><img src="assets/img/eventos/19.webp" alt="Color Vibe 5K - Jardín Botánico" width="600" height="600" loading="lazy"><figcaption>Color Vibe 5K - Jardín Botánico</figcaption></figure><figure class="poster"><img src="assets/img/eventos/36.webp" alt="Spring Break | Las Terrenas" width="600" height="600" loading="lazy"><figcaption>Spring Break | Las Terrenas</figcaption></figure><figure class="poster"><img src="assets/img/eventos/16.webp" alt="Dany Ocean" width="600" height="600" loading="lazy"><figcaption>Dany Ocean</figcaption></figure><figure class="poster"><img src="assets/img/eventos/52.webp" alt="Foro Empresarial Punta Cana" width="600" height="600" loading="lazy"><figcaption>Foro Empresarial Punta Cana</figcaption></figure></div>
+      <div class="marquee__track" aria-hidden="true"><figure class="poster"><img src="assets/img/eventos/5.webp" alt="" width="600" height="600" loading="lazy"><figcaption>Partido Clasificatorio al Mundial de Fútbol Rep. Dom</figcaption></figure><figure class="poster"><img src="assets/img/eventos/6.webp" alt="" width="600" height="600" loading="lazy"><figcaption>2025-Fiba Americup 2025 Qualifiers</figcaption></figure><figure class="poster"><img src="assets/img/eventos/15.webp" alt="" width="600" height="600" loading="lazy"><figcaption>Corona Sunsets - Rawayana</figcaption></figure><figure class="poster"><img src="assets/img/eventos/18.webp" alt="" width="600" height="600" loading="lazy"><figcaption>Black Coffee Playa Montecinos</figcaption></figure><figure class="poster"><img src="assets/img/eventos/22.webp" alt="" width="600" height="600" loading="lazy"><figcaption>Manuel Medrano</figcaption></figure><figure class="poster"><img src="assets/img/eventos/25.webp" alt="" width="600" height="600" loading="lazy"><figcaption>Flor Bertotti</figcaption></figure><figure class="poster"><img src="assets/img/eventos/30.webp" alt="" width="600" height="600" loading="lazy"><figcaption>Jerry Di</figcaption></figure><figure class="poster"><img src="assets/img/eventos/53.webp" alt="" width="600" height="600" loading="lazy"><figcaption>TWE - Mario Alonso Puig</figcaption></figure><figure class="poster"><img src="assets/img/eventos/19.webp" alt="" width="600" height="600" loading="lazy"><figcaption>Color Vibe 5K - Jardín Botánico</figcaption></figure><figure class="poster"><img src="assets/img/eventos/36.webp" alt="" width="600" height="600" loading="lazy"><figcaption>Spring Break | Las Terrenas</figcaption></figure><figure class="poster"><img src="assets/img/eventos/16.webp" alt="" width="600" height="600" loading="lazy"><figcaption>Dany Ocean</figcaption></figure><figure class="poster"><img src="assets/img/eventos/52.webp" alt="" width="600" height="600" loading="lazy"><figcaption>Foro Empresarial Punta Cana</figcaption></figure></div>
+    </div>
+  <div class="container showcase__cta">
+    <a class="btn btn--primary" href="eventos.html" data-magnetic>Ver todos los eventos <svg class="icon icon--go" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
+  </div>
+</section>
+
+<section class="cta-wrap" aria-labelledby="cta-title">
+  <div class="container">
+    <div class="cta" data-reveal>
+      <img class="cta__mark" src="assets/img/brand/mark.png" alt="" width="388" height="261" loading="lazy">
+      <span class="eyebrow eyebrow--light" style="color:#fff">Hablemos</span>
+      <h2 class="cta__title" id="cta-title" style="margin-top:20px">Hagamos que el acceso a tu próximo evento sea impecable.</h2>
+      <p class="cta__text">Cuéntanos sobre tu evento y te prepararemos una propuesta adecuada a tus necesidades: tecnología, formación y experiencia para evitar cuellos de botella.</p>
+      <div class="cta__actions">
+        <a class="btn btn--white" href="cotizacion.html" data-magnetic>Solicitar cotización <svg class="icon icon--go" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
+        <a class="btn btn--ghost" href="mailto:forwardaccesssrl@gmail.com"><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg> Escríbenos</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__news" data-reveal>
+      <div>
+        <h2>Suscríbete para más información</h2>
+        <p>Recibe novedades sobre nuestros servicios de registro y control de acceso para eventos.</p>
+      </div>
+      <form class="news-form" data-form="newsletter" novalidate>
+        <label class="sr-only" for="news-email">Correo electrónico</label>
+        <input id="news-email" type="email" name="email" placeholder="Tu correo electrónico" autocomplete="email" required>
+        <input class="hp" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button class="btn btn--primary" type="submit"><span>Suscribirme</span><svg class="icon" aria-hidden="true"><use href="#i-send"/></svg></button>
+      </form>
+    </div>
+
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <a href="index.html" aria-label="Forward Access — Inicio"><img src="assets/img/brand/logo-h-light.png" alt="Forward Access" width="721" height="200" loading="lazy"></a>
+        <p>El control de accesos es clave para que la gestión de entradas se complete con éxito, la experiencia del público sea satisfactoria y se cumplan las condiciones de compra establecidas por el promotor.</p>
+        <div class="socials">
+          <a href="https://www.instagram.com/forwardaccess/" target="_blank" rel="noopener" aria-label="Instagram"><svg class="icon" aria-hidden="true"><use href="#i-instagram"/></svg></a>
+          <a href="https://www.facebook.com/forwardaccess/" target="_blank" rel="noopener" aria-label="Facebook"><svg class="icon" aria-hidden="true"><use href="#i-facebook"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h3 class="footer__title">Menú</h3>
+        <ul class="footer__list">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="eventos.html">Eventos</a></li>
+          <li><a href="productores.html">Productores</a></li>
+          <li><a href="cotizacion.html">Cotización</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="footer__title">Enlaces útiles</h3>
+        <ul class="footer__list">
+          <li><a href="https://forwardaccess.in/admin" target="_blank" rel="noopener">Acceso Promotores <svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right"/></svg></a></li>
+          <li><a href="https://forwardaccess.in/admin" target="_blank" rel="noopener">Reportes en Línea <svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right"/></svg></a></li>
+          <li><a href="eventos.html">Nuestros Clientes</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="footer__title">Cotización</h3>
+        <ul class="footer__contact">
+          <li><svg class="icon" aria-hidden="true"><use href="#i-map-pin"/></svg><span>Santo Domingo,<br>Distrito Nacional</span></li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg><a href="mailto:forwardaccesssrl@gmail.com">forwardaccesssrl@gmail.com</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <span>© <span data-year>2026</span> Forward Access SRL. Todos los derechos reservados.</span>
+      <a class="to-top" href="#top">Volver arriba <span><svg class="icon" aria-hidden="true"><use href="#i-arrow-up"/></svg></span></a>
+    </div>
+  </div>
+  <div class="footer__giant" aria-hidden="true">Forward Access</div>
+</footer>
+
+<script src="assets/vendor/gsap.min.js" defer></script>
+<script src="assets/vendor/ScrollTrigger.min.js" defer></script>
+<script src="assets/vendor/SplitText.min.js" defer></script>
+<script src="assets/vendor/lenis.min.js" defer></script>
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>
