@@ -6,19 +6,6 @@
 (function () {
   'use strict';
 
-  /* ------------------------------------------------------------------
-     Configuración
-     ------------------------------------------------------------------ */
-  var CONFIG = {
-    email: 'servicios@forward.com.do',
-    // Si tienes un servicio para recibir formularios (Formspree, FormSubmit,
-    // un PHP propio, etc.) coloca aquí la URL y los formularios se enviarán
-    // directamente (POST, FormData). Si se deja vacío, se abre el correo
-    // del visitante con el mensaje ya redactado hacia CONFIG.email.
-    // Ejemplos: 'https://formspree.io/f/xxxxxxx'  ·  'enviar.php'
-    formEndpoint: ''
-  };
-
   window.__fa = true;
   var root = document.documentElement;
   var $ = function (s, c) { return (c || document).querySelector(s); };
@@ -82,24 +69,6 @@
      Utilidades
      ------------------------------------------------------------------ */
   $$('[data-year]').forEach(function (el) { el.textContent = new Date().getFullYear(); });
-
-  var toastEl = null, toastTimer = null;
-  function toast(message, type) {
-    if (!toastEl) {
-      toastEl = document.createElement('div');
-      toastEl.className = 'toast';
-      toastEl.setAttribute('role', 'status');
-      toastEl.setAttribute('aria-live', 'polite');
-      document.body.appendChild(toastEl);
-    }
-    var icon = type === 'error' ? 'x' : 'check';
-    toastEl.classList.toggle('is-error', type === 'error');
-    toastEl.innerHTML = '<span class="toast__icon"><svg class="icon" aria-hidden="true"><use href="#i-' + icon + '"/></svg></span><span></span>';
-    toastEl.lastChild.textContent = message;
-    requestAnimationFrame(function () { toastEl.classList.add('is-visible'); });
-    clearTimeout(toastTimer);
-    toastTimer = setTimeout(function () { toastEl.classList.remove('is-visible'); }, 5200);
-  }
 
   /* ------------------------------------------------------------------
      Navegación: estado al hacer scroll, ocultar/mostrar
@@ -751,68 +720,6 @@
   }
 
   /* ------------------------------------------------------------------
-     Formularios
-     ------------------------------------------------------------------ */
-  function buildMailto(type, data) {
-    var subject, lines = [];
-    if (type === 'newsletter') {
-      subject = 'Suscripción para más información';
-      lines.push('Hola, me gustaría recibir más información sobre Forward Access.', '', 'Correo: ' + data.get('email'));
-    } else {
-      subject = 'Solicitud de cotización — ' + (data.get('evento') || 'Evento');
-      var servicios = data.getAll('servicios');
-      lines.push(
-        'Nombre: ' + (data.get('nombre') || ''),
-        'E-mail: ' + (data.get('email') || ''),
-        'Teléfono: ' + (data.get('telefono') || '—'),
-        'Nombre del evento: ' + (data.get('evento') || ''),
-        'Fecha: ' + (data.get('fecha') || ''),
-        'Asistentes estimados: ' + (data.get('asistentes') || '—'),
-        'Lugar: ' + (data.get('lugar') || '—'),
-        'Servicios de interés: ' + (servicios.length ? servicios.join(', ') : '—'),
-        '',
-        'Mensaje:',
-        data.get('mensaje') || ''
-      );
-    }
-    return 'mailto:' + CONFIG.email + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(lines.join('\n'));
-  }
-
-  function initForms() {
-    $$('form[data-form]').forEach(function (form) {
-      form.addEventListener('submit', function (e) {
-        e.preventDefault();
-        if (!form.checkValidity()) { form.reportValidity(); return; }
-        var data = new FormData(form);
-        if (data.get('_gotcha')) return; // anti-spam
-        var type = form.getAttribute('data-form');
-        var btn = $('[type="submit"]', form);
-        var okMsg = type === 'newsletter'
-          ? '¡Gracias! Te mantendremos informado.'
-          : '¡Gracias! Recibimos tu solicitud y te contactaremos pronto.';
-
-        if (!CONFIG.formEndpoint) {
-          window.location.href = buildMailto(type, data);
-          toast('Abrimos tu correo con el mensaje listo. Solo tienes que enviarlo.');
-          return;
-        }
-        if (btn) { btn.classList.add('is-loading'); btn.disabled = true; }
-        data.append('_subject', type === 'newsletter' ? 'Nueva suscripción — forward.do' : 'Nueva cotización — forward.do');
-        fetch(CONFIG.formEndpoint, { method: 'POST', body: data, headers: { Accept: 'application/json' } })
-          .then(function (r) { if (!r.ok) throw new Error(r.status); toast(okMsg); form.reset(); })
-          .catch(function () { toast('No pudimos enviar el formulario. Escríbenos a ' + CONFIG.email, 'error'); })
-          .then(function () { if (btn) { btn.classList.remove('is-loading'); btn.disabled = false; } });
-      });
-    });
-
-    // La fecha mínima del evento es hoy
-    $$('input[type="date"][data-min-today]').forEach(function (d) {
-      var t = new Date(); t.setMinutes(t.getMinutes() - t.getTimezoneOffset());
-      d.min = t.toISOString().slice(0, 10);
-    });
-  }
-
-  /* ------------------------------------------------------------------
      Arranque
      ------------------------------------------------------------------ */
   function boot() {
@@ -824,7 +731,6 @@
     initDash();
     initPointerFx();
     initEvents();
-    initForms();
     initPauseOffscreen();
     initReveals();
     playEnter();
