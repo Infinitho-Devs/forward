@@ -124,69 +124,42 @@
     <nav class="crumbs" aria-label="Ruta"><a href="index.html">Inicio</a><svg class="icon" aria-hidden="true"><use href="#i-chevron-right"/></svg><span aria-current="page">Cotización</span></nav>
     <span class="eyebrow" style="margin-top:28px">Hablemos de tu evento</span>
     <h1 class="page-hero__title" data-split>Cotización</h1>
-    <p class="lead page-hero__lead">Completa la información para que podamos realizar una propuesta adecuada a las necesidades de tu evento.</p>
+    <p class="lead page-hero__lead">Cuéntanos sobre tu evento y te preparamos una propuesta adecuada a sus necesidades.</p>
     
   </div>
 </section>
 
-<section class="section section--paper" aria-labelledby="form-title">
+<section class="section section--paper" aria-labelledby="contact-title">
   <div class="container quote-layout">
-    <div class="form-card" data-reveal>
-      <h2 class="form-card__title" id="form-title">Solicita tu cotización aquí</h2>
-      <p class="form-card__text">Completa la información para que podamos realizar una propuesta adecuada a tus necesidades.</p>
+    <div class="contact-card" data-reveal>
+      <h2 class="contact-card__title" id="contact-title">Solicita tu cotización</h2>
+      <p class="contact-card__text">Escríbenos por el canal que prefieras y cuéntanos sobre tu evento. Cada propuesta se diseña a la medida de tus necesidades.</p>
 
-      <form data-form="cotizacion" novalidate>
-        <div class="form-grid">
-          <div class="field">
-            <input id="f-nombre" name="nombre" type="text" placeholder=" " autocomplete="name" required>
-            <label for="f-nombre">Nombre completo <span class="req">*</span></label>
-          </div>
-          <div class="field">
-            <input id="f-email" name="email" type="email" placeholder=" " autocomplete="email" required>
-            <label for="f-email">E-mail <span class="req">*</span></label>
-          </div>
-          <div class="field">
-            <input id="f-tel" name="telefono" type="tel" placeholder=" " autocomplete="tel">
-            <label for="f-tel">Teléfono</label>
-          </div>
-          <div class="field">
-            <input id="f-evento" name="evento" type="text" placeholder=" " required>
-            <label for="f-evento">Nombre del evento <span class="req">*</span></label>
-          </div>
-          <div class="field field--fixed">
-            <input id="f-fecha" name="fecha" type="date" required data-min-today>
-            <label for="f-fecha">Fecha del evento <span class="req">*</span></label>
-          </div>
-          <div class="field field--fixed">
-            <select id="f-asist" name="asistentes">
-              <option value="">Selecciona un rango</option>
-              <option>Menos de 500</option>
-              <option>500 – 2,000</option>
-              <option>2,000 – 10,000</option>
-              <option>Más de 10,000</option>
-            </select>
-            <label for="f-asist">Asistentes estimados</label>
-            <svg class="icon field__chev" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-          </div>
-          <div class="field span-2">
-            <input id="f-lugar" name="lugar" type="text" placeholder=" ">
-            <label for="f-lugar">Lugar o ciudad del evento</label>
-          </div>
-          <fieldset class="fieldset span-2">
-            <legend>¿Qué servicios te interesan?</legend>
-            <div class="check-chips"><label class="check-chip"><input type="checkbox" name="servicios" value="Control de acceso QR"><span><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Control de acceso QR</span></label><label class="check-chip"><input type="checkbox" name="servicios" value="Registro y acreditación"><span><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Registro y acreditación</span></label><label class="check-chip"><input type="checkbox" name="servicios" value="Reportes en tiempo real"><span><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Reportes en tiempo real</span></label><label class="check-chip"><input type="checkbox" name="servicios" value="Personal en sitio"><span><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Personal en sitio</span></label></div>
-          </fieldset>
-          <div class="field span-2">
-            <textarea id="f-msg" name="mensaje" placeholder=" " required></textarea>
-            <label for="f-msg">Cuéntanos sobre tu evento <span class="req">*</span></label>
-          </div>
-        </div>
-        <input class="hp" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
-        <div class="form-foot">
-          <small>Los campos con <span style="color:var(--cyan)">*</span> son obligatorios. Responderemos a la brevedad a tu correo.</small>
-          <button class="btn btn--primary" type="submit" data-magnetic><span>Enviar solicitud</span><svg class="icon" aria-hidden="true"><use href="#i-send"/></svg></button>
-        </div>
-      </form>
+      <div class="channels">
+        <a class="channel" href="mailto:servicios@forward.com.do">
+          <span class="channel__icon"><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg></span>
+          <span class="channel__body"><small>Correo</small><strong>servicios@forward.com.do</strong></span>
+          <span class="channel__go"><svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right"/></svg></span>
+        </a>
+        <a class="channel" href="https://www.instagram.com/forwardaccess/" target="_blank" rel="noopener">
+          <span class="channel__icon"><svg class="icon" aria-hidden="true"><use href="#i-instagram"/></svg></span>
+          <span class="channel__body"><small>Instagram</small><strong>@forwardaccess</strong></span>
+          <span class="channel__go"><svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right"/></svg></span>
+        </a>
+        <a class="channel" href="https://www.facebook.com/forwardaccess/" target="_blank" rel="noopener">
+          <span class="channel__icon"><svg class="icon" aria-hidden="true"><use href="#i-facebook"/></svg></span>
+          <span class="channel__body"><small>Facebook</small><strong>/forwardaccess</strong></span>
+          <span class="channel__go"><svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right"/></svg></span>
+        </a>
+      </div>
+
+      <h3 class="contact-card__sub">Para cotizar más rápido, incluye:</h3>
+      <ul class="checklist">
+        <li><span class="checklist__icon"><svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg></span><div><strong>Fecha del evento</strong>Día y hora de apertura de puertas.</div></li>
+        <li><span class="checklist__icon"><svg class="icon" aria-hidden="true"><use href="#i-map-pin"/></svg></span><div><strong>Lugar o ciudad</strong>Recinto y cantidad de entradas o accesos.</div></li>
+        <li><span class="checklist__icon"><svg class="icon" aria-hidden="true"><use href="#i-users"/></svg></span><div><strong>Asistentes estimados</strong>Desde menos de 500 hasta más de 10,000.</div></li>
+        <li><span class="checklist__icon"><svg class="icon" aria-hidden="true"><use href="#i-list-checks"/></svg></span><div><strong>Servicios de interés</strong>Control de acceso QR, registro y acreditación, reportes en tiempo real o personal en sitio.</div></li>
+      </ul>
     </div>
 
     <aside class="aside">
@@ -221,17 +194,15 @@
 
 <footer class="footer">
   <div class="container">
-    <div class="footer__news" data-reveal>
+    <div class="footer__band" data-reveal>
       <div>
-        <h2>Suscríbete para más información</h2>
-        <p>Recibe novedades sobre nuestros servicios de registro y control de acceso para eventos.</p>
+        <h2>Síguenos y vive cada evento</h2>
+        <p>Accesos, montajes y el día a día de nuestro equipo en los eventos más grandes del país.</p>
       </div>
-      <form class="news-form" data-form="newsletter" novalidate>
-        <label class="sr-only" for="news-email">Correo electrónico</label>
-        <input id="news-email" type="email" name="email" placeholder="Tu correo electrónico" autocomplete="email" required>
-        <input class="hp" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
-        <button class="btn btn--primary" type="submit"><span>Suscribirme</span><svg class="icon" aria-hidden="true"><use href="#i-send"/></svg></button>
-      </form>
+      <div class="footer__band-actions">
+        <a class="btn btn--primary" href="https://www.instagram.com/forwardaccess/" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-instagram"/></svg><span>Instagram</span></a>
+        <a class="btn btn--ghost" href="https://www.facebook.com/forwardaccess/" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-facebook"/></svg><span>Facebook</span></a>
+      </div>
     </div>
 
     <div class="footer__grid">
