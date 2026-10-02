@@ -70,7 +70,6 @@ body {
   background: #fff;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
   overflow-x: clip;
 }
 body.is-locked { overflow: hidden; }
@@ -348,10 +347,10 @@ html.is-loading .pt { animation: pt-failsafe 0s linear 4s forwards; }
   display: flex; flex-direction: column;
   padding: calc(var(--nav-h) + 36px) var(--gutter) max(28px, env(safe-area-inset-bottom));
   background: var(--ink-950); color: #fff;
-  overflow-y: auto;
-  clip-path: circle(0px at calc(100% - var(--gutter) - 32px) 46px);
-  visibility: hidden;
-  transition: clip-path 0.9s var(--ease-io), visibility 0s linear 0.9s;
+  overflow-y: auto; overscroll-behavior: contain;
+  /* Solo opacidad: se anima en la GPU (clip-path repinta toda la pantalla en cada cuadro) */
+  opacity: 0; visibility: hidden;
+  transition: opacity 0.45s var(--ease), visibility 0s linear 0.45s;
 }
 .menu::before {
   content: ""; position: absolute; inset: 0; pointer-events: none;
@@ -360,9 +359,8 @@ html.is-loading .pt { animation: pt-failsafe 0s linear 4s forwards; }
     radial-gradient(50% 40% at 0% 100%, rgba(22, 131, 207, 0.12), transparent 70%);
 }
 .menu.is-open {
-  visibility: visible;
-  clip-path: circle(160% at calc(100% - var(--gutter) - 32px) 46px);
-  transition: clip-path 0.9s var(--ease-io), visibility 0s;
+  opacity: 1; visibility: visible;
+  transition: opacity 0.45s var(--ease), visibility 0s;
 }
 .menu__links { position: relative; display: grid; gap: 2px; }
 .menu__links a {
@@ -377,14 +375,14 @@ html.is-loading .pt { animation: pt-failsafe 0s linear 4s forwards; }
 .menu__links .is-active { color: var(--cyan-soft); }
 .menu.is-open .menu__links a {
   opacity: 1; transform: none;
-  transition-delay: calc(0.28s + var(--i, 0) * 0.06s);
+  transition-delay: calc(0.12s + var(--i, 0) * 0.06s);
 }
 .menu__foot {
   position: relative; margin-top: auto; padding-top: 40px;
   display: grid; gap: 22px;
   opacity: 0; transition: opacity 0.6s var(--ease) 0s;
 }
-.menu.is-open .menu__foot { opacity: 1; transition-delay: 0.6s; }
+.menu.is-open .menu__foot { opacity: 1; transition-delay: 0.4s; }
 .menu__contact { display: grid; gap: 6px; color: var(--on-dark-2); font-size: 0.95rem; }
 .menu__contact a { color: #fff; font-weight: 600; }
 .menu__row { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
@@ -453,7 +451,7 @@ html.is-loading .pt { animation: pt-failsafe 0s linear 4s forwards; }
 .hero__line--sm { font-size: 0.86em; }
 .hero__line:not(:first-child) { visibility: hidden; }
 .hero__line .word { display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: 0.2em; margin-bottom: -0.2em; }
-.hero__line .word__in { display: inline-block; will-change: transform; }
+.hero__line .word__in { display: inline-block; }
 /* El degradado solo se pinta dentro de la caja: se amplía hacia abajo para no cortar g, p, y */
 .hero__line .word__in.is-grad { padding-bottom: 0.2em; margin-bottom: -0.2em; }
 .hero__line em { font-style: normal; }
@@ -881,7 +879,7 @@ html.is-loading .pt { animation: pt-failsafe 0s linear 4s forwards; }
    ========================================================================== */
 .quotes { overflow: hidden; color: var(--on-dark); background: var(--ink-950); text-align: center; }
 .quotes__bg { position: absolute; inset: 0; overflow: hidden; }
-.quotes__bg img { position: absolute; left: 0; top: -12%; width: 100%; height: 124%; object-fit: cover; filter: saturate(0.5) blur(1px); opacity: 0.3; }
+.quotes__bg img { position: absolute; left: 0; top: -12%; width: 100%; height: 124%; object-fit: cover; filter: saturate(0.5); opacity: 0.3; }
 .quotes__bg::after {
   content: ""; position: absolute; inset: 0;
   background:
@@ -1283,6 +1281,25 @@ html.is-loading .pt { animation: pt-failsafe 0s linear 4s forwards; }
 .toast__icon { width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; background: var(--grad); flex: none; }
 .toast__icon .icon { width: 17px; height: 17px; }
 .toast.is-error .toast__icon { background: #e5484d; }
+
+/* ==========================================================================
+   Rendimiento
+   ========================================================================== */
+/* Animaciones infinitas fuera de pantalla: en pausa (lo controla main.js) */
+.is-paused, .is-paused * { animation-play-state: paused !important; }
+
+/* Pantallas táctiles: sin backdrop-filter. El desenfoque se recalcula en cada
+   cuadro del scroll (sobre todo en la barra fija) y es lo que más pesa en móvil. */
+@media (hover: none) {
+  .nav.is-scrolled .nav__bar { background: rgba(255, 255, 255, 0.97); }
+  .nav.is-scrolled .nav__bar, .btn--ghost, .pill, .float-card, .pillar__num,
+  .event-card__tag, .video__overlay--end {
+    -webkit-backdrop-filter: none; backdrop-filter: none;
+  }
+  .float-card { background: rgba(13, 33, 64, 0.94); }
+  .pillar__num { background: rgba(13, 33, 64, 0.72); }
+  .event-card__tag { background: rgba(13, 33, 64, 0.8); }
+}
 
 /* ==========================================================================
    Movimiento reducido
