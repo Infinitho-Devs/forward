@@ -10,7 +10,7 @@
      Configuración
      ------------------------------------------------------------------ */
   var CONFIG = {
-    email: 'forwardaccesssrl@gmail.com',
+    email: 'servicios@forward.com.do',
     // Si tienes un servicio para recibir formularios (Formspree, FormSubmit,
     // un PHP propio, etc.) coloca aquí la URL y los formularios se enviarán
     // directamente (POST, FormData). Si se deja vacío, se abre el correo
@@ -44,7 +44,15 @@
   if (hasGSAP) {
     gsap.registerPlugin(ScrollTrigger);
     if (window.SplitText) gsap.registerPlugin(SplitText);
+    // En móvil la barra de direcciones cambia el alto del viewport al hacer
+    // scroll; sin esto ScrollTrigger recalcula todo en pleno desplazamiento.
+    ScrollTrigger.config({ ignoreMobileResize: true });
   }
+
+  // Los efectos atados al scroll (scrub/parallax) se calculan en el hilo
+  // principal y van un cuadro por detrás del scroll nativo del móvil, lo que
+  // se siente como "lag". Solo se activan con mouse.
+  var scrubFx = animate && finePointer;
 
   /* ------------------------------------------------------------------
      Scroll suave (solo escritorio)
@@ -270,20 +278,22 @@
         .fromTo(img, { scale: 1.25 }, { scale: 1, duration: 1.6, ease: 'expo.out', clearProps: 'transform' }, 0);
     });
 
+    if (!scrubFx) return;
+
     // Parallax
     $$('[data-parallax]').forEach(function (el) {
       var amt = parseFloat(el.getAttribute('data-parallax')) || 10;
       gsap.fromTo(el, { yPercent: -amt }, {
         yPercent: amt, ease: 'none',
-        scrollTrigger: { trigger: el.parentElement, start: 'top bottom', end: 'bottom top', scrub: true }
+        scrollTrigger: { trigger: el.closest('section') || el.parentElement, start: 'top bottom', end: 'bottom top', scrub: true }
       });
     });
 
-    // Video que crece al entrar
+    // Video que crece al entrar (solo escala: animar border-radius repinta la sombra en cada cuadro)
     var video = $('.video');
     if (video) {
-      gsap.fromTo(video, { scale: 0.9, borderRadius: 48 }, {
-        scale: 1, borderRadius: window.innerWidth < 640 ? 18 : 34, ease: 'none',
+      gsap.fromTo(video, { scale: 0.9 }, {
+        scale: 1, ease: 'none',
         scrollTrigger: { trigger: video, start: 'top 95%', end: 'top 35%', scrub: 0.6 }
       });
     }
@@ -459,8 +469,10 @@
     });
 
     // Parallax suave de la imagen y salida del contenido
-    gsap.to('.hero__media', { yPercent: 10, ease: 'none', scrollTrigger: { trigger: hero, start: 'top top', end: 'bottom top', scrub: true } });
-    gsap.to('.hero__copy', { yPercent: -6, autoAlpha: 0.25, ease: 'none', scrollTrigger: { trigger: hero, start: '30% top', end: 'bottom top', scrub: true } });
+    if (scrubFx) {
+      gsap.to('.hero__media', { yPercent: 10, ease: 'none', scrollTrigger: { trigger: hero, start: 'top top', end: 'bottom top', scrub: true } });
+      gsap.to('.hero__copy', { yPercent: -6, autoAlpha: 0.25, ease: 'none', scrollTrigger: { trigger: hero, start: '30% top', end: 'bottom top', scrub: true } });
+    }
 
     // Intro (se reproduce cuando se abre la cortina)
     var intro = gsap.timeline({ paused: true, onComplete: startProgress });
@@ -491,7 +503,21 @@
     tl.from($$('.page-hero__lead, .page-hero__meta', ph), { autoAlpha: 0, y: 24, duration: 1, ease: 'expo.out', stagger: 0.1 }, 0.4)
       .from('.page-hero__bg', { scale: 1.12, autoAlpha: 0, duration: 1.8, ease: 'expo.out' }, 0);
     introTimelines.push(tl);
-    gsap.to('.page-hero .container', { yPercent: 18, autoAlpha: 0.2, ease: 'none', scrollTrigger: { trigger: ph, start: 'top top', end: 'bottom top', scrub: true } });
+    if (scrubFx) {
+      gsap.to('.page-hero .container', { yPercent: 18, autoAlpha: 0.2, ease: 'none', scrollTrigger: { trigger: ph, start: 'top top', end: 'bottom top', scrub: true } });
+    }
+  }
+
+  /* ------------------------------------------------------------------
+     Pausar animaciones infinitas (marquesinas, muro, tarjetas flotantes)
+     cuando no están en pantalla
+     ------------------------------------------------------------------ */
+  function initPauseOffscreen() {
+    if (!('IntersectionObserver' in window)) return;
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { e.target.classList.toggle('is-paused', !e.isIntersecting); });
+    }, { rootMargin: '120px 0px' });
+    $$('.marquee, .wall, .hero__media, .video, .dash').forEach(function (el) { io.observe(el); });
   }
 
   /* ------------------------------------------------------------------
@@ -799,6 +825,7 @@
     initPointerFx();
     initEvents();
     initForms();
+    initPauseOffscreen();
     initReveals();
     playEnter();
     if (hasGSAP) {
