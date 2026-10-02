@@ -254,7 +254,7 @@ html.is-loading .pt { animation: pt-failsafe 0s linear 4s forwards; }
 /* Estados iniciales de animación (solo si el JS está activo) */
 .js [data-reveal] { opacity: 0; transform: translateY(36px); }
 .js [data-split] { visibility: hidden; }
-.split-line { padding-bottom: 0.08em; margin-bottom: -0.08em; }
+.split-line { padding-bottom: 0.2em; margin-bottom: -0.2em; }
 .no-anim [data-reveal] { opacity: 1 !important; transform: none !important; }
 .no-anim [data-split] { visibility: visible !important; }
 
@@ -452,8 +452,10 @@ html.is-loading .pt { animation: pt-failsafe 0s linear 4s forwards; }
 .hero__line { grid-area: 1 / 1; align-self: end; }
 .hero__line--sm { font-size: 0.86em; }
 .hero__line:not(:first-child) { visibility: hidden; }
-.hero__line .word { display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: 0.1em; margin-bottom: -0.1em; }
+.hero__line .word { display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: 0.2em; margin-bottom: -0.2em; }
 .hero__line .word__in { display: inline-block; will-change: transform; }
+/* El degradado solo se pinta dentro de la caja: se amplía hacia abajo para no cortar g, p, y */
+.hero__line .word__in.is-grad { padding-bottom: 0.2em; margin-bottom: -0.2em; }
 .hero__line em { font-style: normal; }
 .hero__line .is-grad, .hero__line em:not(:has(.word)) {
   background: var(--grad); -webkit-background-clip: text; background-clip: text;
@@ -1123,6 +1125,11 @@ html.is-loading .pt { animation: pt-failsafe 0s linear 4s forwards; }
 @media (min-width: 640px) { .event-card__body { padding: 18px 18px 22px; } }
 .event-card__title { font-family: var(--font-display); font-weight: 600; font-size: 0.92rem; line-height: 1.32; letter-spacing: -0.015em; }
 @media (min-width: 640px) { .event-card__title { font-size: 1rem; } }
+.event-card__service {
+  display: flex; align-items: flex-start; gap: 6px; margin-top: 8px;
+  font-size: 0.78rem; font-weight: 700; line-height: 1.35; color: var(--azure);
+}
+.event-card__service .icon { width: 14px; height: 14px; margin-top: 1px; }
 
 .empty {
   display: grid; justify-items: center; gap: 12px; text-align: center;
